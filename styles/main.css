@@ -330,6 +330,49 @@ section {
     color: var(--text-dark);
 }
 
+.fundraising-goal-section {
+    margin-top: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.goal-display {
+    text-align: center;
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+.goal-amount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.goal-amount i {
+    font-size: 2.5rem;
+    color: var(--golden-yellow);
+}
+
+.goal-target {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    line-height: 1;
+}
+
+.goal-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .calendar-section {
     margin-top: 4rem;
 }
@@ -728,6 +771,22 @@ section {
 
     .stat-number {
         font-size: 2rem;
+    }
+
+    .goal-display {
+        padding: 2rem 1.5rem;
+    }
+
+    .goal-amount i {
+        font-size: 2rem;
+    }
+
+    .goal-target {
+        font-size: 2.5rem;
+    }
+
+    .goal-description {
+        font-size: 1rem;
     }
 
     .calendar-grid {
