@@ -239,11 +239,26 @@ section {
 }
 
 .about-content {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-image {
+    flex: 0 0 300px;
+}
+
+.harrison-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-medium);
 }
 
 .about-text {
+    flex: 1;
     font-size: 1.1rem;
     line-height: 1.8;
 }
@@ -878,6 +893,17 @@ section {
         background-color: rgba(0, 0, 0, 0.2);
         color: var(--text-dark);
         border: 2px solid rgba(0, 0, 0, 0.3);
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .about-image {
+        flex: 0 0 auto;
+        max-width: 250px;
+        margin: 0 auto;
     }
 
     .impact-content {
