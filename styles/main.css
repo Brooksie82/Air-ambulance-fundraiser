@@ -520,6 +520,34 @@ section {
     border: 2px solid var(--golden-yellow);
 }
 
+/* Font Awesome Icon Styles */
+.icon-circle-wbaa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--golden-yellow);
+    color: var(--primary-green);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.icon-stat {
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.icon-inline {
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
 /* Impact Section */
 .impact {
     background-color: var(--white);
@@ -538,6 +566,7 @@ section {
     border-radius: 10px;
     box-shadow: 0 2px 10px var(--shadow);
     transition: var(--transition);
+    text-align: center;
 }
 
 .impact-card:hover {
@@ -853,6 +882,17 @@ section {
 
     .impact-content {
         grid-template-columns: 1fr;
+    }
+
+    .icon-circle-wbaa {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .icon-stat {
+        font-size: 1rem;
     }
 
     .btn {
