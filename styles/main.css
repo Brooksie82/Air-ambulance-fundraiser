@@ -118,6 +118,9 @@ body {
     padding: 0.5rem 1.5rem;
     border-radius: 5px;
     transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
 }
 
 .nav-cta:hover {
@@ -511,10 +514,37 @@ section {
 .calendar-parkrun-name {
     font-size: 0.95rem;
     color: var(--white);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.4;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.calendar-month-date {
+    font-size: 0.85rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.calendar-month-time {
+    font-size: 0.9rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark text for date and time on yellow tiles */
+.calendar-month:nth-child(6n+2) .calendar-month-date,
+.calendar-month:nth-child(6n+2) .calendar-month-time,
+.calendar-month:nth-child(6n+4) .calendar-month-date,
+.calendar-month:nth-child(6n+4) .calendar-month-time,
+.calendar-month:nth-child(6n+6) .calendar-month-date,
+.calendar-month:nth-child(6n+6) .calendar-month-time {
+    color: var(--text-dark);
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 .calendar-month-status {
@@ -890,8 +920,12 @@ section {
     /* Dark text for yellow tiles in 2-column layout */
     .calendar-month:nth-child(4n+2) .calendar-month-name,
     .calendar-month:nth-child(4n+2) .calendar-parkrun-name,
+    .calendar-month:nth-child(4n+2) .calendar-month-date,
+    .calendar-month:nth-child(4n+2) .calendar-month-time,
     .calendar-month:nth-child(4n+3) .calendar-month-name,
-    .calendar-month:nth-child(4n+3) .calendar-parkrun-name {
+    .calendar-month:nth-child(4n+3) .calendar-parkrun-name,
+    .calendar-month:nth-child(4n+3) .calendar-month-date,
+    .calendar-month:nth-child(4n+3) .calendar-month-time {
         color: var(--text-dark);
         text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
     }

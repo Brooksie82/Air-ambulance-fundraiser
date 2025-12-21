@@ -86,34 +86,72 @@ function initializeCalendar() {
     // Wiltshire and Bath parkruns (to be re-ordered when planning the schedule)
     const parkruns = [
         'Southwick Country Park parkrun',
+        'Melksham parkrun',
         'Brickfields Park parkrun',
+        'Tidworth parkrun',
+        'Marlborough Common parkrun',
+        'Thoulstone parkrun',
+        'Bath Skyline parkrun',
+        'Seven Fields parkrun',
         'Chippenham parkrun',
         'Lydiard parkrun',
-        'Marlborough Common parkrun',
-        'Melksham parkrun',
         'Salisbury parkrun',
-        'Seven Fields parkrun',
-        'Bath Skyline parkrun',
-        'Thoulstone parkrun',
-        'Tidworth parkrun',
         'Quaker\'s Walk parkrun'
     ];
     
     // Image paths for each parkrun (images should be placed in images/parkruns/)
     const parkrunImages = [
         'images/parkruns/southwick-country-park.jpg',
+        'images/parkruns/melksham.jpg',
         'images/parkruns/brickfields-park.jpg',
+        'images/parkruns/tidworth.jpg',
+        'images/parkruns/marlborough-common.jpg',
+        'images/parkruns/thoulstone.jpg',
+        'images/parkruns/bath-skyline.jpg',
+        'images/parkruns/seven-fields.jpg',
         'images/parkruns/chippenham.jpg',
         'images/parkruns/lydiard.jpg',
-        'images/parkruns/marlborough-common.jpg',
-        'images/parkruns/melksham.jpg',
         'images/parkruns/salisbury.jpg',
-        'images/parkruns/seven-fields.jpg',
-        'images/parkruns/bath-skyline.jpg',
-        'images/parkruns/thoulstone.jpg',
-        'images/parkruns/tidworth.jpg',
         'images/parkruns/quakers-walk.jpg'
     ];
+    
+    // Run times for completed months (format: "mm:ss")
+    // Add run times here as they are completed
+    const runTimes = {
+        0: null,  // January
+        1: null,  // February
+        2: null,  // March
+        3: null,  // April
+        4: null,  // May
+        5: null,  // June
+        6: null,  // July
+        7: null,  // August
+        8: null,  // September
+        9: null,  // October
+        10: null, // November
+        11: null  // December
+    };
+    
+    // Function to get the first Saturday of a month
+    function getFirstSaturday(year, month) {
+        const firstDay = new Date(year, month, 1);
+        const dayOfWeek = firstDay.getDay(); // 0 = Sunday, 6 = Saturday
+        // Calculate days until Saturday (6)
+        // If dayOfWeek is 6 (Saturday), daysUntilSaturday = 0
+        // Otherwise: (6 - dayOfWeek + 7) % 7
+        const daysUntilSaturday = dayOfWeek === 6 ? 0 : (6 - dayOfWeek + 7) % 7;
+        const firstSaturday = new Date(year, month, 1 + daysUntilSaturday);
+        return firstSaturday;
+    }
+    
+    // Function to format date as "d.m.yy" (e.g., "4.1.26")
+    function formatDate(date) {
+        const day = date.getDate();
+        const month = date.getMonth() + 1; // Months are 0-indexed, so add 1
+        const year = date.getFullYear().toString().slice(-2); // Get last 2 digits of year
+        
+        return `${day}.${month}.${year}`;
+    }
     
     const now = new Date();
     const currentYear = now.getFullYear();
@@ -124,24 +162,38 @@ function initializeCalendar() {
         const monthElement = document.createElement('div');
         monthElement.className = 'calendar-month';
         
-        const monthDate = new Date(2026, index, 1);
-        const isPast = currentYear > 2026 || (currentYear === 2026 && currentMonth > index) || 
-                      (currentYear === 2026 && currentMonth === index && currentDate >= 1);
-        const isCurrent = currentYear === 2026 && currentMonth === index;
-        const isFuture = currentYear < 2026 || (currentYear === 2026 && currentMonth < index);
+        // Get the first Saturday of this month in 2026
+        const runDate = getFirstSaturday(2026, index);
+        const formattedDate = formatDate(runDate);
+        
+        // Check if the run date has passed
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const runDateCopy = new Date(runDate);
+        runDateCopy.setHours(0, 0, 0, 0);
+        
+        const isPast = today > runDateCopy;
+        const isToday = today.getTime() === runDateCopy.getTime();
+        const isCurrentMonth = today.getFullYear() === 2026 && today.getMonth() === index;
+        const isFuture = today < runDateCopy;
         
         let statusClass = 'pending';
         let statusText = 'Upcoming';
+        const runTime = runTimes[index];
+        const isCompleted = isPast && runTime !== null;
         
-        if (isPast && !isCurrent) {
+        if (isPast && runTime !== null) {
             statusClass = 'completed';
             statusText = 'Completed';
-        } else if (isCurrent) {
+        } else if (isToday || (isCurrentMonth && !isPast)) {
             statusClass = 'upcoming';
             statusText = 'This Month';
         } else if (isFuture) {
             statusClass = 'pending';
             statusText = 'Upcoming';
+        } else if (isPast && runTime === null) {
+            statusClass = 'completed';
+            statusText = 'Completed';
         }
         
         // Get the parkrun name for this month (index-based for now, will be re-ordered later)
@@ -155,14 +207,26 @@ function initializeCalendar() {
             monthElement.style.backgroundPosition = 'center';
         }
         
-        monthElement.innerHTML = `
+        // Build the content HTML
+        let contentHTML = `
             <div class="calendar-month-overlay"></div>
             <div class="calendar-month-content">
                 <div class="calendar-month-name">${monthName}</div>
                 <div class="calendar-parkrun-name">${parkrunName}</div>
+                <div class="calendar-month-date">${formattedDate}</div>
+        `;
+        
+        // Add run time if completed
+        if (isCompleted && runTime) {
+            contentHTML += `<div class="calendar-month-time">Time: ${runTime}</div>`;
+        }
+        
+        contentHTML += `
                 <div class="calendar-month-status ${statusClass}">${statusText}</div>
             </div>
         `;
+        
+        monthElement.innerHTML = contentHTML;
         
         calendarGrid.appendChild(monthElement);
     });
