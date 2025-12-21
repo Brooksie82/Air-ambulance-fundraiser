@@ -104,6 +104,14 @@ body {
     width: 100%;
 }
 
+.nav-menu a.active {
+    color: var(--primary-green);
+}
+
+.nav-menu a.active::after {
+    width: 100%;
+}
+
 .nav-cta {
     background-color: var(--primary-green);
     color: var(--white) !important;
@@ -114,6 +122,15 @@ body {
 
 .nav-cta:hover {
     background-color: var(--primary-green-light);
+}
+
+.nav-cta.active {
+    background-color: var(--primary-green-light);
+    box-shadow: 0 2px 8px var(--shadow-medium);
+}
+
+.nav-cta.active::after {
+    display: none;
 }
 
 .nav-cta::after {

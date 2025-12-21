@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize calendar
     initializeCalendar();
+    
+    // Initialize scroll spy for navigation
+    initializeScrollSpy();
 });
 
 // Progress Tracker
@@ -185,4 +188,79 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Scroll Spy - Highlight active navigation item based on scroll position
+function initializeScrollSpy() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+    
+    if (sections.length === 0 || navLinks.length === 0) return;
+    
+    // Options for Intersection Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px', // Trigger when section is in upper portion of viewport
+        threshold: 0
+    };
+    
+    // Callback for Intersection Observer
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                
+                // Remove active class from all nav links
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Add active class to corresponding nav link
+                const activeLink = document.querySelector(`.nav-menu a[href="#${id}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    };
+    
+    // Create Intersection Observer
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Observe all sections
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+    
+    // Handle initial scroll position (if already scrolled on page load)
+    const handleInitialScroll = () => {
+        const scrollPosition = window.scrollY + 100; // Offset for header
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                const activeLink = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    };
+    
+    // Check initial scroll position
+    handleInitialScroll();
+    
+    // Also check on scroll (as backup)
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(handleInitialScroll, 100);
+    });
+}
 
