@@ -1,9 +1,9 @@
 /* CSS Variables - Wiltshire Air Ambulance Brand Colors */
 :root {
-    --primary-green: #2d5016;
-    --primary-green-light: #4a7c2a;
-    --golden-yellow: #f4a261;
-    --golden-yellow-light: #f6b885;
+    --primary-green: #1a5632;
+    --primary-green-light: #2d7a4a;
+    --golden-yellow: #ffce05;
+    --golden-yellow-light: #ffd84d;
     --white: #ffffff;
     --gray-light: #f5f5f5;
     --gray: #e0e0e0;
@@ -153,6 +153,14 @@ body {
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
+}
+
+.hero-logo {
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto 2rem;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 .hero-title {
@@ -348,6 +356,12 @@ section {
     box-shadow: 0 2px 10px var(--shadow);
     text-align: center;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .calendar-month:hover {
@@ -355,19 +369,42 @@ section {
     box-shadow: 0 5px 20px var(--shadow-medium);
 }
 
+.calendar-month-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(26, 86, 50, 0.7), rgba(26, 86, 50, 0.85));
+    z-index: 1;
+    transition: var(--transition);
+}
+
+.calendar-month:hover .calendar-month-overlay {
+    background: linear-gradient(to bottom, rgba(26, 86, 50, 0.6), rgba(26, 86, 50, 0.75));
+}
+
+.calendar-month-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
 .calendar-month-name {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--primary-green);
+    color: var(--white);
     margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .calendar-parkrun-name {
     font-size: 0.95rem;
-    color: var(--text-dark);
+    color: var(--white);
     margin-bottom: 0.75rem;
     font-weight: 500;
     line-height: 1.4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .calendar-month-status {
@@ -379,18 +416,21 @@ section {
 }
 
 .calendar-month-status.pending {
-    background-color: var(--gray);
-    color: var(--gray-dark);
+    background-color: rgba(255, 255, 255, 0.3);
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .calendar-month-status.completed {
-    background-color: var(--primary-green);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--primary-green);
+    border: 2px solid var(--white);
 }
 
 .calendar-month-status.upcoming {
     background-color: var(--golden-yellow);
     color: var(--text-dark);
+    border: 2px solid var(--golden-yellow);
 }
 
 /* Impact Section */
@@ -598,6 +638,11 @@ section {
     .hero {
         padding: 4rem 1.5rem;
         min-height: 60vh;
+    }
+
+    .hero-logo {
+        max-width: 150px;
+        margin-bottom: 1.5rem;
     }
 
     .hero-title {

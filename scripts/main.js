@@ -96,6 +96,22 @@ function initializeCalendar() {
         'Quaker\'s Walk parkrun'
     ];
     
+    // Image paths for each parkrun (images should be placed in images/parkruns/)
+    const parkrunImages = [
+        'images/parkruns/southwick-country-park.jpg',
+        'images/parkruns/brickfields-park.jpg',
+        'images/parkruns/chippenham.jpg',
+        'images/parkruns/lydiard.jpg',
+        'images/parkruns/marlborough-common.jpg',
+        'images/parkruns/melksham.jpg',
+        'images/parkruns/salisbury.jpg',
+        'images/parkruns/seven-fields.jpg',
+        'images/parkruns/bath-skyline.jpg',
+        'images/parkruns/thoulstone.jpg',
+        'images/parkruns/tidworth.jpg',
+        'images/parkruns/quakers-walk.jpg'
+    ];
+    
     const now = new Date();
     const currentYear = now.getFullYear();
     const currentMonth = now.getMonth();
@@ -127,11 +143,22 @@ function initializeCalendar() {
         
         // Get the parkrun name for this month (index-based for now, will be re-ordered later)
         const parkrunName = parkruns[index] || 'TBD';
+        const parkrunImage = parkrunImages[index] || '';
+        
+        // Set background image if available
+        if (parkrunImage) {
+            monthElement.style.backgroundImage = `url('${parkrunImage}')`;
+            monthElement.style.backgroundSize = 'cover';
+            monthElement.style.backgroundPosition = 'center';
+        }
         
         monthElement.innerHTML = `
-            <div class="calendar-month-name">${monthName}</div>
-            <div class="calendar-parkrun-name">${parkrunName}</div>
-            <div class="calendar-month-status ${statusClass}">${statusText}</div>
+            <div class="calendar-month-overlay"></div>
+            <div class="calendar-month-content">
+                <div class="calendar-month-name">${monthName}</div>
+                <div class="calendar-parkrun-name">${parkrunName}</div>
+                <div class="calendar-month-status ${statusClass}">${statusText}</div>
+            </div>
         `;
         
         calendarGrid.appendChild(monthElement);
