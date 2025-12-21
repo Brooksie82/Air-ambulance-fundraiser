@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Harrison's monthly parkrun challenge for Wiltshire and Bath Air Ambulance. Running a parkrun in Wiltshire every month in 2026 to raise funds for this lifesaving charity.">
+    <meta name="keywords" content="parkrun, fundraising, Wiltshire Air Ambulance, charity, running">
+    <meta property="og:title" content="Harrison's Parkrun Challenge for Wiltshire and Bath Air Ambulance">
+    <meta property="og:description" content="Join Harrison as he runs a parkrun in Wiltshire every month in 2026 to raise funds for Wiltshire and Bath Air Ambulance.">
+    <meta property="og:type" content="website">
+    <title>Harrison's Parkrun Challenge | Wiltshire and Bath Air Ambulance</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav" aria-label="Main navigation">
+            <div class="nav-container">
+                <a href="#home" class="logo">Harrison's Challenge</a>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#challenge">The Challenge</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#donate" class="nav-cta">Donate</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Running for a Cause</h1>
+                <p class="hero-subtitle">Harrison's Monthly Parkrun Challenge for Wiltshire and Bath Air Ambulance</p>
+                <p class="hero-description">Join me as I run a parkrun in Wiltshire every single month in 2026 to raise funds for this amazing lifesaving charity.</p>
+                <a href="#donate" class="btn btn-primary">Donate Now</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About the Challenge</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="intro">Hi, I'm Harrison, and I'm 8 years old.</p>
+                        <p>I've set myself an exciting challenge for 2026: to run a parkrun in Wiltshire every single month of the year. That's 12 parkruns in total!</p>
+                        <p>I'm doing this to raise money for Wiltshire and Bath Air Ambulance, a charity that provides vital critical medical care by land and air across our communities. They're here when people need them most, and they rely entirely on donations to keep their lifesaving service flying.</p>
+                        <p>Every donation, no matter how small, helps them continue their incredible work saving lives across Wiltshire and Bath.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Challenge Section -->
+        <section id="challenge" class="challenge">
+            <div class="container">
+                <h2 class="section-title">The Challenge</h2>
+                <p class="section-intro">12 parkruns. 12 months. One amazing cause.</p>
+                
+                <div class="progress-section">
+                    <div class="progress-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="completed-runs">0</span>
+                            <span class="stat-label">Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Total Runs</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="remaining-runs">12</span>
+                            <span class="stat-label">Remaining</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <p class="progress-text">Progress: <span id="progress-percent">0</span>%</p>
+                    </div>
+                </div>
+
+                <div class="calendar-section">
+                    <h3 class="subsection-title">2026 Parkrun Schedule</h3>
+                    <div class="calendar-grid" id="calendar-grid">
+                        <!-- Calendar months will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section id="impact" class="impact">
+            <div class="container">
+                <h2 class="section-title">Why Your Support Matters</h2>
+                <div class="impact-content">
+                    <div class="impact-card">
+                        <h3>Lifesaving Service</h3>
+                        <p>Wiltshire and Bath Air Ambulance provides critical medical care by land and air across Wiltshire and Bath. They respond to emergencies when every second counts.</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>Community Funded</h3>
+                        <p>As a registered charity, they don't receive government funding. They rely entirely on voluntary donations and support from our local communities.</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>Your Impact</h3>
+                        <p>Every donation helps keep their helicopters and critical care teams ready to respond. Your support truly saves lives.</p>
+                    </div>
+                </div>
+                <div class="impact-link">
+                    <p>Learn more about <a href="https://www.wiltshirebathairambulance.org.uk/" target="_blank" rel="noopener noreferrer">Wiltshire and Bath Air Ambulance</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="donate" class="cta">
+            <div class="container">
+                <h2 class="section-title">Support the Challenge</h2>
+                <p class="cta-text">Your donation will help keep Wiltshire and Bath Air Ambulance flying and saving lives. Every contribution makes a difference!</p>
+                <div class="cta-buttons">
+                    <a href="https://www.justgiving.com/your-page-url" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer" id="justgiving-link">
+                        Donate on JustGiving
+                    </a>
+                    <p class="cta-note">Note: Please update the JustGiving link in index.html when your fundraising page is ready.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://www.justgiving.com/your-page-url" target="_blank" rel="noopener noreferrer" id="footer-justgiving-link">Donate on JustGiving</a></li>
+                        <li><a href="https://www.wiltshirebathairambulance.org.uk/" target="_blank" rel="noopener noreferrer">Wiltshire and Bath Air Ambulance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <p>Harrison's Monthly Parkrun Challenge 2026</p>
+                    <p>Raising funds for Wiltshire and Bath Air Ambulance</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Harrison's Parkrun Challenge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
+
