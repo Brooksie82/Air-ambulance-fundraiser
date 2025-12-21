@@ -80,6 +80,22 @@ function initializeCalendar() {
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
     
+    // Wiltshire and Bath parkruns (to be re-ordered when planning the schedule)
+    const parkruns = [
+        'Southwick Country Park parkrun',
+        'Brickfields Park parkrun',
+        'Chippenham parkrun',
+        'Lydiard parkrun',
+        'Marlborough Common parkrun',
+        'Melksham parkrun',
+        'Salisbury parkrun',
+        'Seven Fields parkrun',
+        'Bath Skyline parkrun',
+        'Thoulstone parkrun',
+        'Tidworth parkrun',
+        'Quaker\'s Walk parkrun'
+    ];
+    
     const now = new Date();
     const currentYear = now.getFullYear();
     const currentMonth = now.getMonth();
@@ -109,8 +125,12 @@ function initializeCalendar() {
             statusText = 'Upcoming';
         }
         
+        // Get the parkrun name for this month (index-based for now, will be re-ordered later)
+        const parkrunName = parkruns[index] || 'TBD';
+        
         monthElement.innerHTML = `
             <div class="calendar-month-name">${monthName}</div>
+            <div class="calendar-parkrun-name">${parkrunName}</div>
             <div class="calendar-month-status ${statusClass}">${statusText}</div>
         `;
         
