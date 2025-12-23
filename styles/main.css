@@ -911,8 +911,12 @@ section {
     /* White text for green tiles in 2-column layout (override any desktop styles) */
     .calendar-month:nth-child(4n+1) .calendar-month-name,
     .calendar-month:nth-child(4n+1) .calendar-parkrun-name,
+    .calendar-month:nth-child(4n+1) .calendar-month-date,
+    .calendar-month:nth-child(4n+1) .calendar-month-time,
     .calendar-month:nth-child(4n+4) .calendar-month-name,
-    .calendar-month:nth-child(4n+4) .calendar-parkrun-name {
+    .calendar-month:nth-child(4n+4) .calendar-parkrun-name,
+    .calendar-month:nth-child(4n+4) .calendar-month-date,
+    .calendar-month:nth-child(4n+4) .calendar-month-time {
         color: var(--white);
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
