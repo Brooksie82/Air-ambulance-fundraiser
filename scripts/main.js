@@ -132,6 +132,25 @@ function initializeCalendar() {
         11: null  // December
     };
     
+    // Specific run dates (format: Date object or null to use first Saturday)
+    // If null, will use first Saturday of the month and add 'tbc'
+    // If a Date is provided, that specific date will be used
+    const runDates = {
+        0: new Date(2026, 0, 17),  // January - will use first Saturday
+        1: new Date(2026, 1, 14),  // February - will use first Saturday
+        2: null,  // March - will use first Saturday
+        3: null,  // April - will use first Saturday
+        4: null,  // May - will use first Saturday
+        5: null,  // June - will use first Saturday
+        6: null,  // July - will use first Saturday
+        7: null,  // August - will use first Saturday
+        8: null,  // September - will use first Saturday
+        9: null,  // October - will use first Saturday
+        10: null, // November - will use first Saturday
+        11: null  // December - will use first Saturday
+        // Example: 0: new Date(2026, 0, 10) for January 10th, 2026
+    };
+    
     // Function to get the first Saturday of a month
     function getFirstSaturday(year, month) {
         const firstDay = new Date(year, month, 1);
@@ -145,12 +164,13 @@ function initializeCalendar() {
     }
     
     // Function to format date as "d.m.yy" (e.g., "4.1.26")
-    function formatDate(date) {
+    function formatDate(date, isEstimated = false) {
         const day = date.getDate();
         const month = date.getMonth() + 1; // Months are 0-indexed, so add 1
         const year = date.getFullYear().toString().slice(-2); // Get last 2 digits of year
         
-        return `${day}.${month}.${year}`;
+        const formatted = `${day}.${month}.${year}`;
+        return isEstimated ? `${formatted} tbc` : formatted;
     }
     
     const now = new Date();
@@ -162,9 +182,19 @@ function initializeCalendar() {
         const monthElement = document.createElement('div');
         monthElement.className = 'calendar-month';
         
-        // Get the first Saturday of this month in 2026
-        const runDate = getFirstSaturday(2026, index);
-        const formattedDate = formatDate(runDate);
+        // Get the run date - use specific date if provided, otherwise use first Saturday
+        const specificDate = runDates[index];
+        let runDate;
+        let isEstimated = false;
+        
+        if (specificDate) {
+            runDate = specificDate;
+        } else {
+            runDate = getFirstSaturday(2026, index);
+            isEstimated = true;
+        }
+        
+        const formattedDate = formatDate(runDate, isEstimated);
         
         // Check if the run date has passed
         const today = new Date();
