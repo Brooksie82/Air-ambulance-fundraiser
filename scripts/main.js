@@ -1,3 +1,20 @@
+// Run times for completed months (format: "mm:ss")
+// Add run times here as they are completed
+const runTimes = {
+    0: null,  // January
+    1: null,  // February
+    2: null,  // March
+    3: null,  // April
+    4: null,  // May
+    5: null,  // June
+    6: null,  // July
+    7: null,  // August
+    8: null,  // September
+    9: null,  // October
+    10: null, // November
+    11: null  // December
+};
+
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -34,19 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Progress Tracker
 function initializeProgressTracker() {
-    // Get current date
-    const now = new Date();
-    const currentYear = now.getFullYear();
-    const currentMonth = now.getMonth(); // 0-11
-    
-    // Only count months if we're in 2026
+    // Count completed runs based on runTimes (non-null entries)
     let completedRuns = 0;
-    if (currentYear === 2026) {
-        // Count months that have passed (0-indexed, so add 1)
-        completedRuns = Math.min(currentMonth + 1, 12);
-    } else if (currentYear > 2026) {
-        // If we're past 2026, all runs are complete
-        completedRuns = 12;
+    for (let i = 0; i < 12; i++) {
+        if (runTimes[i] !== null) {
+            completedRuns++;
+        }
     }
     
     const totalRuns = 12;
@@ -114,23 +124,6 @@ function initializeCalendar() {
         'images/parkruns/salisbury.jpg',
         'images/parkruns/quakers-walk.jpg'
     ];
-    
-    // Run times for completed months (format: "mm:ss")
-    // Add run times here as they are completed
-    const runTimes = {
-        0: null,  // January
-        1: null,  // February
-        2: null,  // March
-        3: null,  // April
-        4: null,  // May
-        5: null,  // June
-        6: null,  // July
-        7: null,  // August
-        8: null,  // September
-        9: null,  // October
-        10: null, // November
-        11: null  // December
-    };
     
     // Specific run dates (format: Date object or null to use first Saturday)
     // If null, will use first Saturday of the month and add 'tbc'
