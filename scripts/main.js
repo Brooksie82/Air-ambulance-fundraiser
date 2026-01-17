@@ -1,7 +1,25 @@
 // Run times for completed months (format: "mm:ss")
 // Add run times here as they are completed
 const runTimes = {
-    0: null,  // January
+    0: "35:27",  // January
+    1: null,  // February
+    2: null,  // March
+    3: null,  // April
+    4: null,  // May
+    5: null,  // June
+    6: null,  // July
+    7: null,  // August
+    8: null,  // September
+    9: null,  // October
+    10: null, // November
+    11: null  // December
+};
+
+// Result links for completed months
+// Add result links here as they become available
+// If null, the runTime will be displayed as plain text (not a link)
+const resultLinks = {
+    0: "https://www.parkrun.org.uk/southwickcountrypark/results/677/",  // January - add link when available
     1: null,  // February
     2: null,  // March
     3: null,  // April
@@ -239,13 +257,25 @@ function initializeCalendar() {
                 <div class="calendar-month-date">${formattedDate}</div>
         `;
         
-        // Add run time if completed
-        if (isCompleted && runTime) {
-            contentHTML += `<div class="calendar-month-time">Time: ${runTime}</div>`;
+        // Display run time or status
+        // If runTime exists, show it (as link if resultLink exists, otherwise plain text)
+        // Otherwise show the status text ("Upcoming" or "This Month")
+        const resultLink = resultLinks[index];
+        let statusDisplay = '';
+        
+        if (runTime !== null) {
+            // Show runTime - make it a link if resultLink exists
+            if (resultLink) {
+                statusDisplay = `<div class="calendar-month-status ${statusClass}"><a href="${resultLink}" target="_blank" rel="noopener noreferrer" class="calendar-status-link">${runTime}</a></div>`;
+            } else {
+                statusDisplay = `<div class="calendar-month-status ${statusClass}">${runTime}</div>`;
+            }
+        } else {
+            // Show status text ("Upcoming" or "This Month")
+            statusDisplay = `<div class="calendar-month-status ${statusClass}">${statusText}</div>`;
         }
         
-        contentHTML += `
-                <div class="calendar-month-status ${statusClass}">${statusText}</div>
+        contentHTML += statusDisplay + `
             </div>
         `;
         
