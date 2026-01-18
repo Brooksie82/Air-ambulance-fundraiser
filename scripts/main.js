@@ -1,6 +1,6 @@
 // Fundraising amount raised (update manually as donations come in)
 // Update this value to reflect the current amount raised on JustGiving
-const amountRaised = 57;  // Update this value (e.g., 125 for £125 raised)
+const amountRaised = 117;  // Update this value (e.g., 125 for £125 raised)
 const fundraisingTarget = 250;  // Target amount in pounds
 
 // Run times for completed months (format: "mm:ss")
