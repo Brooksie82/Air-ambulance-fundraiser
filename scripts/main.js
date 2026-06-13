@@ -1,17 +1,17 @@
 // Fundraising amount raised (update manually as donations come in)
 // Update this value to reflect the current amount raised on JustGiving
-const amountRaised = 117;  // Update this value (e.g., 125 for £125 raised)
+const amountRaised = 346;  // Update this value (e.g., 125 for £125 raised)
 const fundraisingTarget = 250;  // Target amount in pounds
 
 // Run times for completed months (format: "mm:ss")
 // Add run times here as they are completed
 const runTimes = {
     0: "35:27",  // January
-    1: null,  // February
-    2: null,  // March
-    3: null,  // April
-    4: null,  // May
-    5: null,  // June
+    1: "35:35",  // February
+    2: "34:35",  // March
+    3: "37:32",  // April
+    4: "33:17",  // May
+    5: "40:24",  // June
     6: null,  // July
     7: null,  // August
     8: null,  // September
@@ -25,11 +25,11 @@ const runTimes = {
 // If null, the runTime will be displayed as plain text (not a link)
 const resultLinks = {
     0: "https://www.parkrun.org.uk/southwickcountrypark/results/677/",  // January - add link when available
-    1: null,  // February
-    2: null,  // March
-    3: null,  // April
-    4: null,  // May
-    5: null,  // June
+    1: "https://www.parkrun.org.uk/melksham/results/325/",  // February
+    2: "https://www.parkrun.org.uk/brickfieldspark/results/39/",  // March
+    3: "https://www.parkrun.org.uk/tidworth/results/190/",  // April
+    4: "https://www.parkrun.org.uk/marlboroughcommon/results/303/",  // May
+    5: "https://www.parkrun.org.uk/thoulstone/results/69/",  // June
     6: null,  // July
     7: null,  // August
     8: null,  // September
@@ -178,10 +178,10 @@ function initializeCalendar() {
     const runDates = {
         0: new Date(2026, 0, 17),  // January - will use first Saturday
         1: new Date(2026, 1, 14),  // February - will use first Saturday
-        2: null,  // March - will use first Saturday
-        3: null,  // April - will use first Saturday
-        4: null,  // May - will use first Saturday
-        5: null,  // June - will use first Saturday
+        2: new Date(2026, 2, 7),  // March - will use first Saturday
+        3: new Date(2026, 3, 4),  // April - will use first Saturday
+        4: new Date(2026, 4, 2),  // May - will use first Saturday
+        5: new Date(2026, 5, 13),  // June - will use first Saturday
         6: null,  // July - will use first Saturday
         7: null,  // August - will use first Saturday
         8: null,  // September - will use first Saturday
