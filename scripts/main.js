@@ -1,6 +1,6 @@
 // Fundraising amount raised (update manually as donations come in)
 // Update this value to reflect the current amount raised on JustGiving
-const amountRaised = 346;  // Update this value (e.g., 125 for £125 raised)
+const amountRaised = 401;  // Update this value (e.g., 125 for £125 raised)
 const fundraisingTarget = 250;  // Target amount in pounds
 
 // Run times for completed months (format: "mm:ss")
@@ -111,8 +111,8 @@ function initializeProgressTracker() {
 
 // Fundraising Progress Tracker
 function initializeFundraisingProgress() {
-    // Calculate progress percentage (cap at 100%)
-    const progressPercent = Math.min(Math.round((amountRaised / fundraisingTarget) * 100), 100);
+    const progressPercent = Math.round((amountRaised / fundraisingTarget) * 100);
+    const barPercent = Math.min(progressPercent, 100);
     
     // Update DOM
     const moneyRaisedElement = document.getElementById('money-raised');
@@ -123,7 +123,7 @@ function initializeFundraisingProgress() {
         moneyRaisedElement.textContent = '£' + amountRaised.toLocaleString();
     }
     if (moneyProgressFill) {
-        moneyProgressFill.style.width = progressPercent + '%';
+        moneyProgressFill.style.width = barPercent + '%';
     }
     if (moneyProgressPercentElement) {
         moneyProgressPercentElement.textContent = progressPercent;
