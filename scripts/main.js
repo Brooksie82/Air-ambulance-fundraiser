@@ -176,15 +176,15 @@ function initializeCalendar() {
     // If null, will use first Saturday of the month and add 'tbc'
     // If a Date is provided, that specific date will be used
     const runDates = {
-        0: new Date(2026, 0, 17),  // January - will use first Saturday
-        1: new Date(2026, 1, 14),  // February - will use first Saturday
-        2: new Date(2026, 2, 7),  // March - will use first Saturday
-        3: new Date(2026, 3, 4),  // April - will use first Saturday
-        4: new Date(2026, 4, 2),  // May - will use first Saturday
-        5: new Date(2026, 5, 13),  // June - will use first Saturday
-        6: null,  // July - will use first Saturday
-        7: null,  // August - will use first Saturday
-        8: null,  // September - will use first Saturday
+        0: new Date(2026, 0, 17),  // January
+        1: new Date(2026, 1, 14),  // February
+        2: new Date(2026, 2, 7),  // March
+        3: new Date(2026, 3, 4),  // April
+        4: new Date(2026, 4, 2),  // May
+        5: new Date(2026, 5, 13),  // June
+        6: new Date(2026, 6, 4),  // July
+        7: new Date(2026, 7, 1),  // August
+        8: new Date(2026, 8, 5),  // September
         9: null,  // October - will use first Saturday
         10: null, // November - will use first Saturday
         11: null  // December - will use first Saturday
