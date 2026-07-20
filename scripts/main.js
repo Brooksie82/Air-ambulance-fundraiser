@@ -1,6 +1,6 @@
 // Fundraising amount raised (update manually as donations come in)
 // Update this value to reflect the current amount raised on JustGiving
-const amountRaised = 401;  // Update this value (e.g., 125 for £125 raised)
+const amountRaised = 441;  // Update this value (e.g., 125 for £125 raised)
 const fundraisingTarget = 250;  // Target amount in pounds
 
 // Run times for completed months (format: "mm:ss")
@@ -12,7 +12,7 @@ const runTimes = {
     3: "37:32",  // April
     4: "33:17",  // May
     5: "40:24",  // June
-    6: null,  // July
+    6: "38:06",  // July
     7: null,  // August
     8: null,  // September
     9: null,  // October
@@ -30,7 +30,7 @@ const resultLinks = {
     3: "https://www.parkrun.org.uk/tidworth/results/190/",  // April
     4: "https://www.parkrun.org.uk/marlboroughcommon/results/303/",  // May
     5: "https://www.parkrun.org.uk/thoulstone/results/69/",  // June
-    6: null,  // July
+    6: 'https://www.parkrun.org.uk/bathskyline/results/533/',  // July
     7: null,  // August
     8: null,  // September
     9: null,  // October
