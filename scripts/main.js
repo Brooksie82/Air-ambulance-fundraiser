@@ -151,9 +151,9 @@ function initializeCalendar() {
         'Bath Skyline parkrun',
         'Seven Fields parkrun',
         'Chippenham parkrun',
-        'Lydiard parkrun',
+        'Quaker\'s Walk parkrun',
         'Salisbury parkrun',
-        'Quaker\'s Walk parkrun'
+        'Lydiard parkrun'
     ];
     
     // Image paths for each parkrun (images should be placed in images/parkruns/)
@@ -167,9 +167,9 @@ function initializeCalendar() {
         'images/parkruns/bath-skyline.jpg',
         'images/parkruns/seven-fields.jpg',
         'images/parkruns/chippenham.jpg',
-        'images/parkruns/lydiard.jpg',
+        'images/parkruns/quakers-walk.jpg',
         'images/parkruns/salisbury.jpg',
-        'images/parkruns/quakers-walk.jpg'
+        'images/parkruns/lydiard.jpg'
     ];
     
     // Specific run dates (format: Date object or null to use first Saturday)
@@ -185,7 +185,7 @@ function initializeCalendar() {
         6: new Date(2026, 6, 4),  // July
         7: new Date(2026, 7, 1),  // August
         8: new Date(2026, 8, 5),  // September
-        9: null,  // October - will use first Saturday
+        9: new Date(2026, 9, 10),  // October
         10: null, // November - will use first Saturday
         11: null  // December - will use first Saturday
         // Example: 0: new Date(2026, 0, 10) for January 10th, 2026
