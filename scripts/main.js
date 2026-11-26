@@ -1,6 +1,6 @@
 // Fundraising amount raised (update manually as donations come in)
 // Update this value to reflect the current amount raised on JustGiving
-const amountRaised = 568;  // Update this value (e.g., 125 for £125 raised)
+const amountRaised = 628;  // Update this value (e.g., 125 for £125 raised)
 const fundraisingTarget = 250;  // Target amount in pounds
 
 // Run times for completed months (format: "mm:ss")
@@ -15,8 +15,8 @@ const runTimes = {
     6: "38:06",  // July
     7: "35:08",  // August
     8: "36:06",  // September
-    9: null,  // October
-    10: null, // November
+    9: "39:23",  // October
+    10: "38:22", // November
     11: null  // December
 };
 
@@ -33,8 +33,8 @@ const resultLinks = {
     6: 'https://www.parkrun.org.uk/bathskyline/results/533/',  // July
     7: 'https://www.parkrun.org.uk/sevenfields/results/284/',  // August
     8: 'https://www.parkrun.org.uk/chippenham/results/570/',  // September
-    9: null,  // October
-    10: null, // November
+    9: "https://www.parkrun.org.uk/quakerswalk/results/152/",  // October
+    10: "https://www.parkrun.org.uk/lydiard/results/757/", // November
     11: null  // December
 };
 
@@ -152,8 +152,8 @@ function initializeCalendar() {
         'Seven Fields parkrun',
         'Chippenham parkrun',
         'Quaker\'s Walk parkrun',
-        'Salisbury parkrun',
-        'Lydiard parkrun'
+        'Lydiard parkrun',
+        'Salisbury parkrun'
     ];
     
     // Image paths for each parkrun (images should be placed in images/parkruns/)
@@ -168,8 +168,8 @@ function initializeCalendar() {
         'images/parkruns/seven-fields.jpg',
         'images/parkruns/chippenham.jpg',
         'images/parkruns/quakers-walk.jpg',
-        'images/parkruns/salisbury.jpg',
-        'images/parkruns/lydiard.jpg'
+        'images/parkruns/lydiard.jpg',
+        'images/parkruns/salisbury.jpg'
     ];
     
     // Specific run dates (format: Date object or null to use first Saturday)
@@ -186,8 +186,8 @@ function initializeCalendar() {
         7: new Date(2026, 7, 1),  // August
         8: new Date(2026, 8, 5),  // September
         9: new Date(2026, 9, 10),  // October
-        10: null, // November - will use first Saturday
-        11: null  // December - will use first Saturday
+        10: new Date(2026, 10, 14), // November
+        11: new Date(2026, 11, 5)  // December
         // Example: 0: new Date(2026, 0, 10) for January 10th, 2026
     };
     
